@@ -65,13 +65,12 @@ public class ToDoAdd extends AppCompatActivity {
         //eksekusi statement
         long rowId = stmt.executeInsert();
 
-        //Pengecekan Ekseskusi, jika berhasil maka mengembalikan id insert, jika tidak -1
+        //pengecekan rowId
         if(rowId!=-1){
-            Toast.makeText(this, "Tambah ToDo Berhasil ("+rowId+")", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Add To Do Success", Toast.LENGTH_SHORT).show();
             Intent ini = getIntent();
-            //Memberikan nilai tambahan ke intent yang sudah menunggu (MainActivity)
+            //memberikan nilai rowID ke intent
             ini.putExtra("EXTRA_INSERT_RESULT",rowId);
-            //Memberikan nilai hasil saat Activity berakhir
             setResult(Activity.RESULT_OK,ini);
             finish();
         }
